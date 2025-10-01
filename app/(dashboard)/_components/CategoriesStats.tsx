@@ -20,12 +20,12 @@ interface Props {
 function CategoriesStats({userSettings, from,to}: Props) {
   const statsQuery = useQuery<GetCategoriesStatsResponseType>({
     queryKey: ["overview", "stats", "categories", from, to],
-    queryFn: () => 
-      fetch(
-        `/api/stats/categories?from=${DateToUTCDate(from)}&to=${DateToUTCDate(
-          to
-        )}`
-      ).then((res) => res.json()),
+    queryFn: () => {
+  const fromDate = DateToUTCDate(from ?? new Date());
+  const toDate = DateToUTCDate(to ?? new Date());
+  return fetch(`/api/stats/categories?from=${fromDate}&to=${toDate}`)
+    .then((res) => res.json());
+}
   });
 
   const formatter = useMemo(() => {

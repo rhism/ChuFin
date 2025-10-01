@@ -20,8 +20,12 @@ function StatsCards({from, to, userSettings}:Props) {
 
     const statsQuery = useQuery<GetBalanceStatsResponseType>({
         queryKey: ["overview", "stats", from, to],
-        queryFn: () => fetch(`/api/stats/balance?from=${DateToUTCDate(from)}&to=${DateToUTCDate(to)}`
-    ).then((res) => res.json()),
+        queryFn: () => {
+  const fromDate = DateToUTCDate(from ?? new Date());
+  const toDate = DateToUTCDate(to ?? new Date());
+  return fetch(`/api/stats/balance?from=${fromDate}&to=${toDate}`)
+    .then((res) => res.json());
+}
 });
 
 const formatter = useMemo(() => {

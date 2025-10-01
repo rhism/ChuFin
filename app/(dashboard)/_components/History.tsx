@@ -35,8 +35,12 @@ function History({userSettings}: {userSettings: userSettings}) {
 
     const historyDataQuery = useQuery({
         queryKey: ["overview", "history", timeframe, period],
-        queryFn: () => fetch(`/api/history-data?timeframe=${timeframe}&year=${period.year}&month=${period.month}`
-        ).then((res) => res.json()),
+        queryFn: () => {
+  const year = period?.year ?? new Date().getFullYear();
+  const month = period?.month ?? new Date().getMonth() + 1;
+  return fetch(`/api/history-data?timeframe=${timeframe ?? "month"}&year=${year}&month=${month}`)
+    .then((res) => res.json());
+}
     });
 
     const dataAvailable = historyDataQuery.data && historyDataQuery.data.length > 0;
