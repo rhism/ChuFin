@@ -4,7 +4,7 @@ import React, {ReactNode} from 'react';
 export const metadata = {
   title: "ChuFin",
   icons: {
-    icon: "/wallet.svg",
+    icon: "/church.svg",
   },
 };
 

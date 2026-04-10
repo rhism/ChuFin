@@ -3,7 +3,7 @@ import React from 'react'
 
 export const metadata = {
   icons: {
-    icon: "/wallet.svg",
+    icon: "/church.svg",
   },
 };
 

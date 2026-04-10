@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: ["website", "expense", "full-stack", "react", "next.js", "web development", "expense tracker",],
   description: "Manage your personal finances with ease",
   icons: {
-    icon: "/wallet.svg",
+    icon: "/church.svg",
   },
 };
 
