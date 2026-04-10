@@ -18,7 +18,7 @@ function TransactionPage() {
     <div className="border-b bg-card">
         <div className="relative flex flex-wrap items-center justify-between gap-6 py-8 px-6 md:px-6">
             <div>
-                <p className="text-3xl font-bold">Transaction history</p>
+                <p className="text-3xl font-bold">Finance history</p>
             </div>
             <DateRangePicker 
                     initialDateFrom={dateRange.from}
